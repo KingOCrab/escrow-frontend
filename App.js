@@ -194,10 +194,20 @@ async function confirmItem(id) {
     if (!contract) return alert("Connect wallet first!");
     try {
         const tx = await contract.confirmDelivery(id);
-        await tx.wait();
+        await tx.wait(); // Wait for blockchain confirmation
+        
+        // Tell the Render backend to remove the item from the array
+        // IMPORTANT: Replace the URL below with your actual Render URL
+        await fetch(`https://YOUR-RENDER-URL.onrender.com/api/products/${id}`, {
+            method: 'DELETE'
+        });
+
         alert("Delivery confirmed! Funds released to seller.");
+        
+        // Instantly refresh the UI to remove the card
+        fetchProducts();
+        
     } catch (error) {
-        // Check if the error is a smart contract revert
         if (error.reason) {
             alert(`Transaction failed: ${error.reason}`);
         } else if (error.message.includes("Item is not in escrow")) {
