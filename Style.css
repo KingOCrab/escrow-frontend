@@ -119,7 +119,7 @@ body {
     border: 1px solid var(--border-light);
 }
 
-/* Input Fields Theme Fix */
+/* Input Fields Theme */
 input, textarea {
     background: var(--input-bg);
     color: var(--text-dark);
@@ -322,7 +322,6 @@ input:focus, textarea:focus {
     .hero { padding: 3rem 1rem; padding-bottom: 5rem; }
 }
 
-/* Fix button contrast in Dark Mode */
 [data-theme="dark"] .product-card button {
     background-color: #38bdf8; /* Bright blue background */
     color: #0f172a;            /* Dark navy text for readability */
@@ -334,7 +333,6 @@ input:focus, textarea:focus {
     background-color: #7dd3fc; /* Lighter blue on hover */
 }
 
-/* Permanent fix for all Buy buttons */
 .product-card .buy-btn {
     background-color: #f8fafc; /* Light background */
     color: #0f172a;            /* Dark navy text for visibility */
@@ -346,12 +344,13 @@ input:focus, textarea:focus {
     background-color: #e2e8f0; /* Slightly darker on hover */
 }
 
-/* Fix Buy button text visibility */
 .card .card-actions .buy-btn {
-    color: #0f172a; /* Forces dark navy text so it stands out */
+    background-color: #3b82f6; /* Bright blue background */
+    color: #ffffff;            /* Pure white text */
+    border: none;
     font-weight: 600;
 }
 
-[data-theme="dark"] .card .card-actions .buy-btn {
-    color: #0f172a; /* Ensures the text stays dark even in dark mode */
+.card .card-actions .buy-btn:hover {
+    background-color: #2563eb; /* Darker blue on hover */
 }
