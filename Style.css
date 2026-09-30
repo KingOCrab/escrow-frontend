@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* Cold Palette - Light Mode */
+    --bg-main: #e0eaf5;
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --input-bg: rgba(255, 255, 255, 0.9);
+    --text-dark: #0f172a;
+    --text-muted: #475569;
+    --border-light: rgba(148, 163, 184, 0.4);
+    
+    /* Cold Accents (Cyan/Teal/Blue) */
+    --accent-blue: #0ea5e9; 
+    --accent-hover: #0284c7;
+    --success-green: #0d9488;
+    
+    /* Background Images with Light Overlays */
+    --hero-bg: linear-gradient(rgba(14, 165, 233, 0.85), rgba(2, 132, 199, 0.95)), url('https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2000&auto=format&fit=crop');
+    --main-bg: linear-gradient(rgba(224, 234, 245, 0.9), rgba(224, 234, 245, 0.95)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop');
+    
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] {
+    /* Cold Palette - Dark Mode */
+    --bg-main: #0f172a;
+    --nav-bg: rgba(15, 23, 42, 0.85);
+    --card-bg: rgba(30, 41, 59, 0.75);
+    --input-bg: rgba(15, 23, 42, 0.8);
+    --text-dark: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-light: rgba(71, 85, 105, 0.5);
+    
+    /* Brighter Accents for Dark Mode Contrast */
+    --accent-blue: #38bdf8;
+    --accent-hover: #7dd3fc;
+    --success-green: #2dd4bf;
+    
+    /* Background Images with Dark Overlays */
+    --hero-bg: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2000&auto=format&fit=crop');
+    --main-bg: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    background-image: var(--main-bg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-dark);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 4rem;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.icon-btn {
+    padding: 0.6rem 1rem;
+    font-size: 1.1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent-blue);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: var(--hero-bg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-bottom: -3rem;
+    padding-bottom: 6rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+/* --- Glassmorphism for Cards --- */
+.form-card, .card, .section-header {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-light);
+}
+
+/* Input Fields Theme Fix */
+input, textarea {
+    background: var(--input-bg);
+    color: var(--text-dark);
+    border: 1px solid var(--border-light);
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--text-muted);
+}
+
+/* --- Dashboard Layout --- */
+.dashboard-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem 2rem;
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 2.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- Form Card --- */
+.form-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+}
+
+.form-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+input, textarea {
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    background: #f8fafc;
+    transition: all 0.2s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(67, 24, 255, 0.15);
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn:active { transform: scale(0.97); }
+
+.outline-btn {
+    background: transparent;
+    border: 2px solid var(--accent-blue);
+    color: var(--accent-blue);
+}
+.outline-btn:hover {
+    background: var(--accent-blue);
+    color: white;
+}
+
+.primary-btn {
+    background: var(--accent-blue);
+    color: white;
+    width: 100%;
+}
+.primary-btn:hover { background: var(--accent-hover); }
+
+.buy-btn { background: var(--text-dark); color: white; flex: 1; }
+.buy-btn:hover { background: #0f172a; }
+
+.confirm-btn { background: var(--success-green); color: white; flex: 1; }
+.confirm-btn:hover { background: #04b083; }
+
+/* --- Marketplace Grid --- */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    background: var(--card-bg);
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--success-green);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--success-green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(5, 205, 153, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(5, 205, 153, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(5, 205, 153, 0); }
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* --- Product Cards --- */
+.card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #e2e8f0;
+    color: var(--text-muted);
+}
+
+.badge.available { background: rgba(5, 205, 153, 0.1); color: var(--success-green); }
+
+.card h3 { font-size: 1.15rem; color: var(--text-dark); }
+.card p { color: var(--text-muted); font-size: 0.9rem; flex-grow: 1; margin-bottom: 1rem; }
+.card .price { font-size: 1.25rem; font-weight: 800; color: var(--accent-blue); margin-bottom: 1rem; }
+
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+/* Responsive Constraints */
+@media (max-width: 900px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+    .hero { padding: 3rem 1rem; padding-bottom: 5rem; }
+}

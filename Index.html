@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EscrowMarket | Decentralized Web3 Commerce</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <!-- Add FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><i class="fa-solid fa-cube"></i> EscrowMarket</div>
+        <div class="nav-actions">
+            <button id="themeToggle" class="btn outline-btn icon-btn" aria-label="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <button id="connectWalletBtn" class="btn outline-btn">
+                <i class="fa-solid fa-wallet"></i> Connect MetaMask
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Trade with Absolute Trust</h1>
+            <p>Smart contract escrow ensures buyers get their items and sellers get paid. No middlemen.</p>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <aside class="sidebar">
+            <div class="form-card">
+                <h2><i class="fa-solid fa-tag"></i> List a Product</h2>
+                <form id="addProductForm">
+                    <div class="input-group">
+                        <label for="prodName">Product Name</label>
+                        <input type="text" id="prodName" placeholder="e.g., Mechanical Keyboard" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="prodDesc">Description</label>
+                        <textarea id="prodDesc" placeholder="Condition, specs, etc." rows="3" required></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="prodPrice">Price (ETH)</label>
+                        <input type="number" id="prodPrice" placeholder="0.05" step="0.001" required>
+                    </div>
+                    <button type="submit" class="btn primary-btn"><i class="fa-solid fa-plus"></i> Create Listing</button>
+                </form>
+            </div>
+        </aside>
+
+        <section class="marketplace">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-store"></i> Available Items</h2>
+                <span class="live-indicator"><span class="dot"></span> Live Network</span>
+            </div>
+            <div id="productList" class="grid-layout">
+                <!-- Products dynamically injected here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
