@@ -233,7 +233,7 @@ addProductForm.addEventListener('submit', async (e) => {
     try {
         // 1. Prompt MetaMask and wait for blockchain confirmation
         const priceWei = ethers.utils.parseEther(priceEth);
-        const tx = await contract.listItem(ethers.utils.parseEther(priceEth), name, priceWei);
+        const tx = await contract.listItem(ethers.utils.parseEther(priceEth));
         await tx.wait(); // Pauses execution until the block is mined
 
         // 2. Save off-chain metadata to the backend
