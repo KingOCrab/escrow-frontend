@@ -333,3 +333,15 @@ input:focus, textarea:focus {
 [data-theme="dark"] .product-card button:hover {
     background-color: #7dd3fc; /* Lighter blue on hover */
 }
+
+/* Permanent fix for all Buy buttons */
+.product-card .buy-btn {
+    background-color: #f8fafc; /* Light background */
+    color: #0f172a;            /* Dark navy text for visibility */
+    border: 1px solid #cbd5e1;
+    font-weight: 600;
+}
+
+.product-card .buy-btn:hover {
+    background-color: #e2e8f0; /* Slightly darker on hover */
+}
