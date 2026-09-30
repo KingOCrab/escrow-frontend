@@ -233,16 +233,23 @@ addProductForm.addEventListener('submit', async (e) => {
     try {
         // 1. Prompt MetaMask and wait for blockchain confirmation
         const priceWei = ethers.utils.parseEther(priceEth);
-        const tx = await contract.listItem(name, priceWei);
+        const tx = await contract.listItem(ethers.utils.parseEther(priceEth), name, priceWei);
         await tx.wait(); // Pauses execution until the block is mined
 
         // 2. Save off-chain metadata to the backend
-        const res = await fetch('https://escrow-market-xmi8.onrender.com/api/products', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, description: desc, priceEth })
-        });
+        const totalItems = await contract.itemCount(); 
+        const realId = totalItems.toNumber();
 
+        const res = await fetch('https://escrow-market-xmi8.onrender.com/api/products', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            id: realId, // Pass the ID here!
+            name: name, 
+            description: desc, 
+            priceEth: priceEth 
+    })
+});
         // Force the code to stop if the Render server rejects the save
         if (!res.ok) {
             throw new Error(`Backend failed to save. Status: ${res.status}`);

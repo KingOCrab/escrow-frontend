@@ -321,3 +321,15 @@ input:focus, textarea:focus {
     }
     .hero { padding: 3rem 1rem; padding-bottom: 5rem; }
 }
+
+/* Fix button contrast in Dark Mode */
+[data-theme="dark"] .product-card button {
+    background-color: #38bdf8; /* Bright blue background */
+    color: #0f172a;            /* Dark navy text for readability */
+    border: none;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .product-card button:hover {
+    background-color: #7dd3fc; /* Lighter blue on hover */
+}
