@@ -147,7 +147,7 @@ connectWalletBtn.addEventListener('click', connectWallet);
 
 // Fetch products and render advanced UI cards
 async function fetchProducts() {
-    const response = await fetch('https://escrow-market-xmi8.onrender.com', {
+    const response = await fetch('https://escrow-market-xmi8.onrender.com/api/products', {
         cache: 'no-store' // Prevents aggressive browser caching
     });
     const products = await response.json();
@@ -200,7 +200,7 @@ async function confirmItem(id) {
         
         // Tell the Render backend to remove the item from the array
         // IMPORTANT: Replace the URL below with your actual Render URL
-        await fetch(`https://escrow-market-xmi8.onrender.com${id}`, {
+        await fetch(`https://escrow-market-xmi8.onrender.com/api/products${id}`, {
             method: 'DELETE'
         });
 
@@ -237,7 +237,7 @@ addProductForm.addEventListener('submit', async (e) => {
         await tx.wait(); // Pauses execution until the block is mined
 
         // 2. Save off-chain metadata to the backend
-        const res = await fetch('https://escrow-market-xmi8.onrender.com', {
+        const res = await fetch('https://escrow-market-xmi8.onrender.com/api/products', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, description: desc, priceEth })
