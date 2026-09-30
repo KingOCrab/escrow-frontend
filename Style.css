@@ -345,3 +345,13 @@ input:focus, textarea:focus {
 .product-card .buy-btn:hover {
     background-color: #e2e8f0; /* Slightly darker on hover */
 }
+
+/* Fix Buy button text visibility */
+.card .card-actions .buy-btn {
+    color: #0f172a; /* Forces dark navy text so it stands out */
+    font-weight: 600;
+}
+
+[data-theme="dark"] .card .card-actions .buy-btn {
+    color: #0f172a; /* Ensures the text stays dark even in dark mode */
+}
